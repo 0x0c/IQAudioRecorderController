@@ -31,6 +31,9 @@
 
 @protocol IQAudioRecorderViewControllerDelegate <NSObject>
 
+@optional
+- (void)updatePlayProgress:(CGFloat)progress duration:(NSTimeInterval)duration;
+
 @required
 /**
  Returns the temporary recorded filePath, you need to copy the recorded file to your own location and don't rely on the filePath anymore. You need to dismiss controller yourself.
@@ -45,7 +48,10 @@
 
 @end
 
-
+typedef NS_ENUM(NSUInteger, IQAudioRecorderStyle) {
+	IQAudioRecorderStyleNormal,
+	IQAudioRecorderStyleBlurred
+};
 
 @interface IQAudioRecorderViewController : UIViewController
 
@@ -53,6 +59,12 @@
  Title to show on navigationBar
  */
 @property(nullable, nonatomic,copy) NSString *title;
+
+
+/**
+ A style of ViewController
+ **/
+@property(nonatomic, assign) IQAudioRecorderStyle style;
 
 ///--------------------------
 /// @name Delegate callback
@@ -87,7 +99,6 @@
  Allows to crop audio files.
  */
 @property (nonatomic, assign) BOOL allowCropping;
-
 
 ///--------------------------
 /// @name Audio Settings
@@ -124,6 +135,16 @@
  */
 @property(nonatomic,assign) NSInteger bitRate;
 
+- (void)startRecording;
+- (void)cancelRecording;
+- (void)doneRecording;
+- (void)startCropping;
+- (void)play;
+- (void)playWithTime:(NSTimeInterval)time;
+- (void)playWithProgress:(CGFloat)progress;
+- (void)pause;
+- (void)stop;
+
 @end
 
 
@@ -133,3 +154,5 @@
 - (void)presentBlurredAudioRecorderViewControllerAnimated:(nonnull IQAudioRecorderViewController *)audioRecorderViewController;
 
 @end
+
+
