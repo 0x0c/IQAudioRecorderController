@@ -371,11 +371,11 @@
 	
 	//Player Duration View
 	{
-		_viewPlayerDuration = [[IQPlaybackDurationView alloc] init];
-		_viewPlayerDuration.delegate = self;
-		_viewPlayerDuration.tintColor = [self _highlightedTintColor];
-		_viewPlayerDuration.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-		_viewPlayerDuration.backgroundColor = [UIColor clearColor];
+//		_viewPlayerDuration = [[IQPlaybackDurationView alloc] init];
+//		_viewPlayerDuration.delegate = self;
+//		_viewPlayerDuration.tintColor = [self _highlightedTintColor];
+//		_viewPlayerDuration.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+//		_viewPlayerDuration.backgroundColor = [UIColor clearColor];
 	}
 }
 
